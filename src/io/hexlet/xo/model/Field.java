@@ -9,14 +9,12 @@ public class Field {
     private final Figure[][] field = new Field[FIELD_SIZE][FIELD_SIZE];
 
     public int getSize(){
-        int fieldSize = FIELD_SIZE;
-        return fieldSize;
+        return FIELD_SIZE;
     }
 
     public Figure getFigure(final Point point){
 
-        Figure figure = field[point.x][point.y];
-        return figure;
+        return field[point.x][point.y];
 
     }
 
