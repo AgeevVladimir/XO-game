@@ -14,9 +14,9 @@ public class PlayerTest {
 
         final Player player = new Player(inputValue, null);
 
-        final String actualValue = player.getName();
+        final String actlValue = player.getName();
 
-        assertEquals(expectedValue, actualValue);
+        assertEquals(expectedValue, actlValue);
 
     }
 
