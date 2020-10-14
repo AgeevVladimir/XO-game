@@ -6,7 +6,7 @@ public class Field {
 
     private static final int FIELD_SIZE = 3;
 
-    private final Figure[][] field = new Field[FIELD_SIZE][FIELD_SIZE];
+    private final Figure[][] field = new Figure[FIELD_SIZE][FIELD_SIZE];
 
     public int getSize(){
         return FIELD_SIZE;
