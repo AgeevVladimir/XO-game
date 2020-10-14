@@ -9,7 +9,7 @@ public class PlayerTest {
     @Test
     public void getName() {
 
-        final String inputValue = "Vovan";
+        final String inputValue = "Vovchik";
         final String expectedValue = inputValue;
 
         final Player player = new Player(inputValue, null);
