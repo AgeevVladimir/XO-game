@@ -15,7 +15,7 @@ public class FieldTest {
 
         final int expectedValue = 3;
 
-        final Field field = new Field();
+        final Field field = new Field(3);
 
         assertEquals(expectedValue,field.getSize());
     }
@@ -23,7 +23,7 @@ public class FieldTest {
     @Test
     void setFigure() throws InvalidPointException, AlreadyOccupiedException {
 
-        final Field field = new Field();
+        final Field field = new Field(3);
         final Point inputPoint = new Point(0,0);
         final Figure inputFigure = Figure.O;
 
@@ -37,7 +37,7 @@ public class FieldTest {
 
     @Test
     void getFigureWhenFigureIsNotSetted() throws Exception{
-        final Field field = new Field();
+        final Field field = new Field(3);
         final Point inputPoint = new Point(0,0);
 
         final Figure actualFigure = field.getFigure(inputPoint);
@@ -47,7 +47,7 @@ public class FieldTest {
 
     @Test
     void getFigureWhenXIsLessThenZero() throws Exception{
-        final Field field = new Field();
+        final Field field = new Field(3);
         final Point inputPoint = new Point(-1,0);
 
         try {
@@ -58,7 +58,7 @@ public class FieldTest {
 
     @Test
     void getFigureWhenYIsLessThenZero() throws Exception{
-        final Field field = new Field();
+        final Field field = new Field(3);
         final Point inputPoint = new Point(0,-2);
 
         try {
@@ -69,7 +69,7 @@ public class FieldTest {
 
     @Test
     void getFigureWhenXIsMoreThenSize() throws Exception{
-        final Field field = new Field();
+        final Field field = new Field(3);
         final Point inputPoint = new Point(field.getSize()+1, 0);
 
         try {
@@ -80,7 +80,7 @@ public class FieldTest {
 
     @Test
     void getFigureWhenYIsLessThenSize() throws Exception{
-        final Field field = new Field();
+        final Field field = new Field(3);
         final Point inputPoint = new Point(0,field.getSize()+1);
 
         try {
