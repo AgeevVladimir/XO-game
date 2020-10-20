@@ -18,7 +18,7 @@ class GameTest {
     @Test
     void getField() {
 
-        Field field = new Field();
+        Field field = new Field(3);
         final Game game = new Game(null, field, null);
 
         assertEquals(field,game.getField());
