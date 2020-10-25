@@ -13,16 +13,8 @@ public class CurrentMoveController {
 
     public Figure currentMove(final Field field) {
         int countFigure = 0;
-        for (int x=0; x < field.getSize(); x++) {
-            for (int y = 0; y < field.getSize(); y++) {
-                try {
-                    if (field.getFigure(new Point(x,y)) != null) {
-                        countFigure++;
-                    }
-                } catch (InvalidPointException e) {
-                    e.printStackTrace();
-                }
-            }
+        for (int y=0; y < field.getSize(); y++) {
+            countFigure += countFiguresInRow(field, y);
         }
         if (countFigure == field.getSize() * field.getSize())
             return null;
@@ -31,6 +23,22 @@ public class CurrentMoveController {
             return Figure.X;
 
         return Figure.O;
+    }
+
+    private int countFiguresInRow(final Field field, final int row) {
+        int countFigure = 0;
+        for (int x = 0; x < field.getSize(); x++) {
+            try {
+                if (field.getFigure(new Point(x, row)) != null) {
+                    countFigure++;
+                }
+            } catch (InvalidPointException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return countFigure;
+
 
     }
 }
