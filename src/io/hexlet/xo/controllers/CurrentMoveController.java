@@ -25,7 +25,7 @@ public class CurrentMoveController {
         return Figure.O;
     }
 
-    private int countFiguresInRow(final Field field, final int row) {
+    public int countFiguresInRow(final Field field, final int row) {
         int countFigure = 0;
         for (int x = 0; x < field.getSize(); x++) {
             try {
