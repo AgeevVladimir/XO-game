@@ -2,6 +2,7 @@ package io.hexlet.xo.controllers;
 
 import io.hexlet.xo.model.Field;
 import io.hexlet.xo.model.Figure;
+import io.hexlet.xo.model.exceptions.InvalidPointException;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
@@ -46,4 +47,24 @@ class CurrentMoveControllerTest {
     }
 
 
+    @Test
+    void countFiguresInRowTest() throws Exception {
+        final CurrentMoveController currentMoveController = new CurrentMoveController();
+        final Field field = new Field(3);
+        int row = 0;
+        field.setFigure(new Point(0, row), Figure.X);
+        field.setFigure(new Point(1, row), Figure.O);
+        field.setFigure(new Point(2, row), Figure.O);
+        assertEquals(3, currentMoveController.countFiguresInRow(field, row));
+
+    }
+
+    @Test
+    void countFiguresInRowTestNoFigures() throws InvalidPointException {
+        final CurrentMoveController currentMoveController = new CurrentMoveController();
+        final Field field = new Field(3);
+        int row = 0;
+        assertEquals(0, currentMoveController.countFiguresInRow(field, row));
+
+    }
 }
