@@ -58,4 +58,13 @@ class CurrentMoveControllerTest {
         assertEquals(3, currentMoveController.countFiguresInRow(field, row));
 
     }
+
+    @Test
+    void countFiguresInRowTestNoFigures() throws InvalidPointException {
+        final CurrentMoveController currentMoveController = new CurrentMoveController();
+        final Field field = new Field(3);
+        int row = 0;
+        assertEquals(0, currentMoveController.countFiguresInRow(field, row));
+
+    }
 }
