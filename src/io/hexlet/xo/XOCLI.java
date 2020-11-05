@@ -20,18 +20,22 @@ public class XOCLI {
         players[1] = new Player(name2, Figure.O);
 
         Field field = new Field(3);
-        field.setFigure(new Point(0,0), Figure.X);
-        field.setFigure(new Point(0,1), Figure.O);
-        field.setFigure(new Point(1,2), Figure.X);
-        field.setFigure(new Point(1,0), Figure.O);
-        field.setFigure(new Point(2,0), Figure.X);
-        field.setFigure(new Point(2,1), Figure.O);
+//        field.setFigure(new Point(0,0), Figure.X);
+//        field.setFigure(new Point(0,1), Figure.O);
+//        field.setFigure(new Point(1,2), Figure.X);
+//        field.setFigure(new Point(1,0), Figure.O);
+//        field.setFigure(new Point(2,0), Figure.X);
+//        field.setFigure(new Point(2,1), Figure.O);
 
 
         final Game game = new Game(players, field, "XO");
 
-        ConsoleView consoleView = new ConsoleView();
+        final ConsoleView consoleView = new ConsoleView();
         consoleView.show(game);
+        while (consoleView.move(game)){
+            consoleView.show(game);
+        }
+
 
     }
 }
