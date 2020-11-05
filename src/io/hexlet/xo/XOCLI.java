@@ -32,6 +32,10 @@ public class XOCLI {
 
         ConsoleView consoleView = new ConsoleView();
         consoleView.show(game);
+        while (consoleView.move(game)){
+            consoleView.show(game);
+        }
+
 
     }
 }
