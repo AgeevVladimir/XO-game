@@ -23,7 +23,7 @@ public class Field {
 
     public Figure getFigure(final Point point) throws InvalidPointException {
         if (!checkPoint(point)) {
-            throw new InvalidPointException();
+            throw new InvalidPointException("Point is invalid");
         }
         return field[point.x][point.y];
     }
