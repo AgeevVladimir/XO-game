@@ -49,6 +49,9 @@ public class ConsoleView {
                 return false;
             }
         }
+
+        // Вызов метода MoveAdvisorController
+
         System.out.printf("Please enter coordinate for figure %s", currentFigure);
         System.out.println();
         final Point point = askPoint();
