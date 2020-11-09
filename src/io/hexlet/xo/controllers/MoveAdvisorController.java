@@ -22,7 +22,7 @@ public class MoveAdvisorController {
                 }
             }
         }
-        return null;
+        return availablePoints;
 
     }
 
