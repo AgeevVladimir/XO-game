@@ -38,12 +38,13 @@ public class XOCLI {
 
         final MoveAdvisorController moveAdvisorController = new MoveAdvisorController();
         availablePoints = moveAdvisorController.getAllAvailablePoints(field);
-        System.out.println(Arrays.toString(moveAdvisorController.getAllAvailablePoints(field)));
+        System.out.println(Arrays.toString(moveAdvisorController.getAllAvailablePoints(field))); // Некрасиво выводит
 
+        System.out.println("Available points");
         for (int i = 0; i < 9; i++){
             if(availablePoints[i] != null){
-                System.out.print(availablePoints[i].x);
-                System.out.println(availablePoints[i].y);
+                System.out.print("X: " + availablePoints[i].x);
+                System.out.println(", Y: " + availablePoints[i].y);
             }
         }
         }
