@@ -1,5 +1,6 @@
 package io.hexlet.xo;
 
+import io.hexlet.xo.controllers.MoveAdvisorController;
 import io.hexlet.xo.model.Field;
 import io.hexlet.xo.model.Figure;
 import io.hexlet.xo.model.Game;
@@ -8,6 +9,7 @@ import io.hexlet.xo.model.exceptions.InvalidPointException;
 import io.hexlet.xo.view.ConsoleView;
 
 import java.awt.*;
+import java.util.Arrays;
 
 public class XOCLI {
 
@@ -28,13 +30,22 @@ public class XOCLI {
 //        field.setFigure(new Point(2,1), Figure.O);
 
 
-        final Game game = new Game(players, field, "XO");
+        final Point[] availablePoints = new Point[field.getSize()*field.getSize()];
+        availablePoints[0] = new Point(3, 3);
+        availablePoints[1] = new Point(2, 2);
+        System.out.println(Arrays.toString(availablePoints));
 
+/*      final Game game = new Game(players, field, "XO");
         final ConsoleView consoleView = new ConsoleView();
         consoleView.show(game);
-        while (consoleView.move(game)){
-            consoleView.show(game);
-        }
+
+        final MoveAdvisorController moveAdvisorController = new MoveAdvisorController();
+        System.out.println(Arrays.toString(moveAdvisorController.getAllAvailablePoints(field)));
+*/
+
+//        while (consoleView.move(game)){
+//            consoleView.show(game);
+//        }
 
 
     }
