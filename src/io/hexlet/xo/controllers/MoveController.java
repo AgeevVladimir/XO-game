@@ -15,7 +15,7 @@ public class MoveController {
                                                          AlreadyOccupiedException {
 
         if (field.getFigure(point) != null) {
-            throw new AlreadyOccupiedException();
+            throw new AlreadyOccupiedException("Point is Occupied");
         }
         field.setFigure(point,figure);
 
