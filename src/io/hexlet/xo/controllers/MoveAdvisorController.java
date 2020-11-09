@@ -15,7 +15,7 @@ public class MoveAdvisorController {
         for (int x = 0; x < field.getSize(); x++) {
             for (int y = 0; y < field.getSize(); y++) {
                 Point point = new Point(x, y);
-                if (field.getFigure(point) != null) {
+                if (field.getFigure(point) == null) {
 
                     availablePoints[i] = point;
                     i++;

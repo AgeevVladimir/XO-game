@@ -9,6 +9,7 @@ import io.hexlet.xo.model.exceptions.InvalidPointException;
 import io.hexlet.xo.view.ConsoleView;
 
 import java.awt.*;
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class XOCLI {
@@ -37,13 +38,13 @@ public class XOCLI {
 
         final MoveAdvisorController moveAdvisorController = new MoveAdvisorController();
         availablePoints = moveAdvisorController.getAllAvailablePoints(field);
+        System.out.println(Arrays.toString(moveAdvisorController.getAllAvailablePoints(field)));
 
-        for (int i = 0; i < field.getSize()*field.getSize(); i++){
+        for (int i = 0; i < 9; i++){
             if(availablePoints[i] != null){
                 System.out.print(availablePoints[i].x);
                 System.out.println(availablePoints[i].y);
             }
-            i++;
         }
         }
 
