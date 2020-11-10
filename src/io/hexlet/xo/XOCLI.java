@@ -23,41 +23,20 @@ public class XOCLI {
         players[1] = new Player(name2, Figure.O);
 
         Field field = new Field(3);
-        field.setFigure(new Point(0,0), Figure.X);
-        field.setFigure(new Point(0,1), Figure.O);
-        field.setFigure(new Point(1,2), Figure.X);
-        field.setFigure(new Point(1,0), Figure.O);
-        field.setFigure(new Point(2,0), Figure.X);
-        field.setFigure(new Point(2,1), Figure.O);
+//        field.setFigure(new Point(0,0), Figure.X);
+//        field.setFigure(new Point(0,1), Figure.O);
+//        field.setFigure(new Point(1,2), Figure.X);
+//        field.setFigure(new Point(1,0), Figure.O);
+//        field.setFigure(new Point(2,0), Figure.X);
+//        field.setFigure(new Point(2,1), Figure.O);
 
-        final Point[] availablePoints;
 
         final Game game = new Game(players, field, "XO");
         final ConsoleView consoleView = new ConsoleView();
         consoleView.show(game);
-
-        final MoveAdvisorController moveAdvisorController = new MoveAdvisorController();
-        availablePoints = moveAdvisorController.getAllAvailablePoints(field);
-        System.out.println(Arrays.toString(moveAdvisorController.getAllAvailablePoints(field))); // Некрасиво выводит
-
-        System.out.println("Available points");
-        for (int i = 0; i < 9; i++){
-            if(availablePoints[i] != null){
-                System.out.print("X: " + availablePoints[i].x);
-                System.out.println(", Y: " + availablePoints[i].y);
-            }
+        while (consoleView.move(game)) {
+            consoleView.show(game);
         }
-        }
-
-/*
-        final MoveAdvisorController moveAdvisorController = new MoveAdvisorController();
-        System.out.println(Arrays.toString(moveAdvisorController.getAllAvailablePoints(field)));
-*/
-
-//        while (consoleView.move(game)){
-//            consoleView.show(game);
-//        }
-
 
     }
-
+}

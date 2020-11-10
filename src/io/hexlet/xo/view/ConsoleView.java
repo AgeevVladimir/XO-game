@@ -1,6 +1,7 @@
 package io.hexlet.xo.view;
 
 import io.hexlet.xo.controllers.CurrentMoveController;
+import io.hexlet.xo.controllers.MoveAdvisorController;
 import io.hexlet.xo.controllers.MoveController;
 import io.hexlet.xo.controllers.WinnerController;
 import io.hexlet.xo.model.Field;
@@ -31,10 +32,14 @@ public class ConsoleView {
 
     }
 
-    public boolean move(final Game game) {
+    public boolean move(final Game game) throws InvalidPointException {
         final Field field = game.getField();
         final Figure currentFigure = currentMoveController.currentMove(field);
         final Figure winner1 = winnerController.getWinner(field);
+        final Point[] availablePoints;
+        final MoveAdvisorController moveAdvisorController = new MoveAdvisorController();
+
+
         if (winner1 != null) {
             System.out.printf("winner is: %s\n", winner1);
             return false;
@@ -50,7 +55,15 @@ public class ConsoleView {
             }
         }
 
-        // Вызов метода MoveAdvisorController
+        availablePoints = moveAdvisorController.getAllAvailablePoints(field);
+
+        System.out.println("Available points");
+        for (int i = 0; i < 9; i++){
+            if(availablePoints[i] != null){
+                System.out.print("X: " + availablePoints[i].x);
+                System.out.println(", Y: " + availablePoints[i].y);
+            }
+        }
 
         System.out.printf("Please enter coordinate for figure %s", currentFigure);
         System.out.println();
