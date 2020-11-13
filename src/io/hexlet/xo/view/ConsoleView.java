@@ -22,7 +22,7 @@ public class ConsoleView {
     private final MoveController moveController = new MoveController();
 
     public void show(final Game game) {
-        System.out.printf("Game name:%s%n", game.getName());
+        System.out.printf("Game ne:%s%n", game.getName());
         final Field field = game.getField();
         for (int x = 0; x < field.getSize(); x++) {
             printLine(field, x);
