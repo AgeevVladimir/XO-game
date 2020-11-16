@@ -11,6 +11,7 @@ import io.hexlet.xo.model.exceptions.AlreadyOccupiedException;
 import io.hexlet.xo.model.exceptions.InvalidPointException;
 
 import java.awt.*;
+import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleView {
@@ -36,7 +37,7 @@ public class ConsoleView {
         final Field field = game.getField();
         final Figure currentFigure = currentMoveController.currentMove(field);
         final Figure winner1 = winnerController.getWinner(field);
-        final Point[] availablePoints;
+        final List<Point> availablePoints;
         final MoveAdvisorController moveAdvisorController = new MoveAdvisorController();
 
 
@@ -58,10 +59,11 @@ public class ConsoleView {
         availablePoints = moveAdvisorController.getAllAvailablePoints(field);
 
         System.out.println("Available points");
-        for (int i = 0; i < 9; i++){
-            if(availablePoints[i] != null){
-                System.out.print("X: " + availablePoints[i].x);
-                System.out.println(", Y: " + availablePoints[i].y);
+
+        for (Point item : availablePoints){
+            if (item != null){
+                System.out.print("X: " + item.x);
+                System.out.println(", Y: " + item.y);
             }
         }
 
