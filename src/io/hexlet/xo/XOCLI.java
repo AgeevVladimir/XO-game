@@ -1,5 +1,6 @@
 package io.hexlet.xo;
 
+import io.hexlet.xo.controllers.MoveAdvisorController;
 import io.hexlet.xo.model.Field;
 import io.hexlet.xo.model.Figure;
 import io.hexlet.xo.model.Game;
@@ -8,6 +9,8 @@ import io.hexlet.xo.model.exceptions.InvalidPointException;
 import io.hexlet.xo.view.ConsoleView;
 
 import java.awt.*;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class XOCLI {
 
@@ -29,13 +32,11 @@ public class XOCLI {
 
 
         final Game game = new Game(players, field, "XO");
-
         final ConsoleView consoleView = new ConsoleView();
         consoleView.show(game);
-        while (consoleView.move(game)){
+        while (consoleView.move(game)) {
             consoleView.show(game);
         }
-
 
     }
 }
