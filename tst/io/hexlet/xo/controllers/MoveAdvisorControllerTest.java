@@ -50,4 +50,30 @@ class MoveAdvisorControllerTest {
         assertEquals(9, allAvailablePoints.size());
 
     }
+
+    @Test
+    void getAllAvailablePointsWhenSomeFiguresAvailable() throws InvalidPointException {
+
+        MoveAdvisorController moveAdvisorController = new MoveAdvisorController();
+        final Field field = new Field(3);
+
+        field.setFigure(new Point(0, 0), Figure.X);
+        field.setFigure(new Point(0, 1), Figure.O);
+        field.setFigure(new Point(0, 2), Figure.X);
+        field.setFigure(new Point(1, 0), Figure.O);
+        field.setFigure(new Point(1, 1), Figure.X);
+        field.setFigure(new Point(1, 2), Figure.O);
+
+
+        final List<Point> allAvailablePoints = moveAdvisorController.getAllAvailablePoints(field);
+        final List<Point> expextedAvailablePoints = new ArrayList<>();
+        expextedAvailablePoints.add(new Point(3,1));
+        expextedAvailablePoints.add(new Point(3,2));
+        expextedAvailablePoints.add(new Point(3,3));
+
+        assertTrue(allAvailablePoints.equals(expextedAvailablePoints));
+
+    }
+
+
 }
